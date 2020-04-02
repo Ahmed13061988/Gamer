@@ -1,0 +1,17 @@
+<h1>Edit Game</h1>
+
+<div class="btn-group">
+<form method="POST" action="/games/<%= @game.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<label>Name:</label><br>
+<input type="text" name="name" id="name" value="<%= @game.name %>"><br>
+<br>
+<label>Publisher:</label><br>
+<textarea type="text" name="publisher" cols="40" rows="5" id="publisher"><%= @game.publisher %></textarea><br>
+<br>
+<label>Rate:</label><br>
+<textarea type="text" name="rate" cols="40 rows="5 id="rate"><%= @game.rate%></textarea></br>
+<br>
+<input type="submit" class="button" value="Submit"></br>
+</form>
+</div>

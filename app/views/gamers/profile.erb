@@ -1,0 +1,14 @@
+<div class="btn-group">
+<p><img src="images/" alt="image" style="width:300px"><h1>Hello <%= @gamer.username%>!<h1>
+<h2>Welcome to your Game World.</h2></p>
+
+<h3>What would you like to do?</h3>
+<form action="/games/create_game" method=get>
+<input type="submit" class="button" value="Create a Game"/>
+</form>
+<a href="/games">My Library</a>
+
+<form action='/logout' method=get>
+<input type="submit" class="button" value="Logout"/>
+</form>
+<div>

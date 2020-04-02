@@ -1,0 +1,25 @@
+<h1> Game: </h1>
+<p><%=@game.name%></p>
+<br>
+<br/>
+<h2>Publisher:</h2><br>
+<p><%arr = @game.publisher.split(",")%></p>
+<p><%arr.each do |publ|%></p>
+<p><%publ%></p>
+<p><% end %></p>
+<br>
+<h2>Rate:</h2><br>
+<p><%= @game.rate%></p><br>
+
+<div class="btn=group">
+<form action="games/<%= @game.id %>/edit" method=get>
+<input type="submit" class="button" value="Edit Game"/>
+</form>
+<form action="/games/<%= @game.id%>.delete" method="post">
+<input id = "hidden" type="hidden" name="_method" value="delete"/>
+<input type="submit" class="button" value="Delete Game" />
+</form>
+<form action="logout" method=get>
+<input type="submit" class="button" value="Logout"/>
+</form>
+</div> 

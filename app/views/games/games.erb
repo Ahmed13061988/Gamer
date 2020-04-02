@@ -1,0 +1,19 @@
+<h3>Select the Game to View, Edit or Delete</h3>
+<% @games.each do |game| %>
+<ul>
+<li>
+<a href = "/games/<%= game.id%>"<%= game.name%>></a>
+</ul>
+<% end %>
+<br><br>
+<br><br>
+<div class="btn-group">
+<form action="/games/create_game" method=get>
+<input type="submit" class="button" value="Create a game"/>
+</form>
+<form action="/profile" method=get>
+<input type="submit" class="button" value="My Profile"/>
+</form>
+<form action="/logout" method=get>
+<input type="submit" class="button" value="Logout"/>
+</div>
