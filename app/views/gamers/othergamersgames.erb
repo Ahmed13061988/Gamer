@@ -1,0 +1,14 @@
+<h1>Games</h1>
+<% @gamer.games.each do |game|%>
+<ul>
+<li>
+
+<a "/games/<%= game.id%>"><%= game.name%></a>
+</ul>
+<% end %> <br>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

@@ -3,23 +3,23 @@
 <br>
 <br/>
 <h2>Publisher:</h2><br>
-<p><%arr = @game.publisher.split(",")%></p>
-<p><%arr.each do |publ|%></p>
-<p><%publ%></p>
-<p><% end %></p>
+ <p><%=@game.publisher%></p>
 <br>
 <h2>Rate:</h2><br>
 <p><%= @game.rate%></p><br>
 
 <div class="btn=group">
-<form action="games/<%= @game.id %>/edit" method=get>
+<form action="/games/<%= @game.id %>/edit" method='patch'>
 <input type="submit" class="button" value="Edit Game"/>
 </form>
 <form action="/games/<%= @game.id%>.delete" method="post">
 <input id = "hidden" type="hidden" name="_method" value="delete"/>
 <input type="submit" class="button" value="Delete Game" />
 </form>
-<form action="logout" method=get>
-<input type="submit" class="button" value="Logout"/>
-</form>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </div> 

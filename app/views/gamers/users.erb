@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>All Users!!</title>
+    </head>
+    <body>
+        <h1>All Gamers</h1>
+        <% @gamer.each do |u|%>
+            <ul>
+            <li>
+            <a href="/gamers/<%= u.id%>/games"><%= u.username%><br></a> 
+            </ul>
+            <% end %>    
+    </body>
+</html>

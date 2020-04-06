@@ -1,8 +1,12 @@
+<% if flash.has?(:field_error)%>
+<h3 style="color:red;"><%= flash[:field_error] %></h3>
+<% end %>
 <h3>Select the Game to View, Edit or Delete</h3>
-<% @games.each do |game| %>
+<% @games.each do |game|%>
 <ul>
 <li>
-<a href = "/games/<%= game.id%>"<%= game.name%>></a>
+
+<a href="/games/<%= game.id%>"><%= game.name%></a>
 </ul>
 <% end %>
 <br><br>

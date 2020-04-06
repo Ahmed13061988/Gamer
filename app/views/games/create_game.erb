@@ -7,11 +7,17 @@
 <br><br/>
 <br><br/>
 <label for="publisher"><strong>Publisher:</strong></label></br><br>
-<textarea name="publisher" cols="40" rows="5" id="publisher" required></textarea>
+<textarea name="publisher" cols="40" rows="2" id="publisher" required></textarea>
 <br>
 <label><strong>Rate:</strong><label><br />
 <textarea name="rate" cols="40" rows="5" id="rate" required></textarea>
 <br>
 <input type="submit" value="Submit">
-</form>
+</form><br>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </div>

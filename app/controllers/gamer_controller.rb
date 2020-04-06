@@ -1,5 +1,7 @@
 class GamerController < ApplicationController
 
+   
+
     get '/singup' do 
         if logged_in? 
             redirect to '/profile'
@@ -7,10 +9,7 @@ class GamerController < ApplicationController
     erb :'/gamers/create_gamer'
     end 
 
-    def gamer 
-        @gamer = Gamer.all 
-    end 
-    
+
 
     post '/singup' do 
         if (params[:username]).empty? ||(params[:password]).empty?
@@ -18,11 +17,35 @@ class GamerController < ApplicationController
             redirect to '/singup'
         end 
          @gamer = Gamer.create(username: params[:username], password: params[:password])
-         @gamer.save
          session[:gamer_id] = @gamer.id 
+         current_gamer = @gamer.id
           erb :'gamers/profile'
         end 
+
+
+    get'/gamers/users' do 
+        @gamer = Gamer.all
+        erb :'/gamers/users'
+    end 
+
+        
+    get "/gamers/:id/gamers/users" do 
+        @gamer = Gamer.all
+        erb :'/gamers/users' 
+    end 
+
+
+  
+
     
+    get '/gamers/:id/games' do 
+        if !logged_in?
+            redirect 'login'
+        end 
+        @gamer = Gamer.find(params[:id])
+        erb :'/gamers/othergamersgames'
+    end 
+
     
     get '/login' do 
         if logged_in? 
@@ -39,12 +62,15 @@ class GamerController < ApplicationController
         elsif (params[:username]).empty? || (params[:password]).empty?
             flash[:field_error]= "You must enter your username and password"
             redirect '/login'
+        else 
+            flash[:field_error]="The Username or Password not correct"
+            redirect 'login'
         end 
     end 
 
     get '/profile' do 
         if logged_in?
-            @gamer= current_gamer
+            @gamer = current_gamer
             erb :'gamers/profile'
         end 
     end 
@@ -57,5 +83,13 @@ class GamerController < ApplicationController
             redirect to '/'          
         end
     end 
+
+    delete '/profile/:id' do #delete action
+        @gamer = Gamer.find_by_id(params[:id])
+        @gamer.delete
+        redirect to '/'
+    end
+
+
 
  end 
