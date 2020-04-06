@@ -73,12 +73,12 @@ class GamesController < ApplicationController
         redirect to "/games"
     end 
 
-    # delete '/games/:id.delete' do 
-    #     if !logged_in?
-    #         redirect to '/login'
-    #     end 
-    #     @game = Game.find(params[:id])
-    #         @game.delete 
-    #         redirect to '/games'
-    # end 
+    delete '/games/:id.delete' do 
+        if !logged_in?
+            redirect to '/login'
+        end 
+        @game = Game.find(params[:id])
+            @game.delete 
+            redirect to '/games'
+    end 
 end 

@@ -6,6 +6,24 @@
 <a "/games/<%= game.id%>"><%= game.name%></a>
 </ul>
 <% end %> <br>
+<h2>Publisher</h2>
+<% @gamer.games.each do |p|%>
+<ul>
+<li>
+<a "/games/<%= p.id%>"><%= p.publisher%>
+<ul>
+<% end %> <br>
+
+<h2>Rate</h2>
+<% @gamer.games.each do |r|%>
+<ul>
+<li>
+<a "/games/<%= r.id%>"><%= r.rate%>
+<ul>
+<% end %> <br>
+
+
+
 <button onclick="goBack()">Go Back</button>
 <script>
 function goBack() {

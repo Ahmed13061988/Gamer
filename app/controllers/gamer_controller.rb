@@ -2,7 +2,7 @@ class GamerController < ApplicationController
 
    
 
-    get '/singup' do 
+    get '/signup' do 
         if logged_in? 
             redirect to '/profile'
         end 
@@ -11,10 +11,10 @@ class GamerController < ApplicationController
 
 
 
-    post '/singup' do 
+    post '/signup' do 
         if (params[:username]).empty? ||(params[:password]).empty?
             flash[:field_error] = "Please, enter your username and password "
-            redirect to '/singup'
+            redirect to '/signup'
         end 
          @gamer = Gamer.create(username: params[:username], password: params[:password])
          session[:gamer_id] = @gamer.id 

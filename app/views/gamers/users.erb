@@ -11,5 +11,12 @@
             <a href="/gamers/<%= u.id%>/games"><%= u.username%><br></a> 
             </ul>
             <% end %>    
+            <button onclick="goBack()">Go Back</button> <br>
+            
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
     </body>
 </html>
