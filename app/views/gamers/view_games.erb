@@ -1,0 +1,27 @@
+<font color="Green "><center><h1>This Gamer Games is:</h1></font></center>
+<style>
+body {
+  background-image: url('https://images.unsplash.com/photo-1496989981497-27d69cdad83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+<font color="green"> <h1>Games:</h1></font>
+<% @gamer.games.each do |game|%>
+<ul>
+<li>
+
+<a "/games/<%= game.id%>">
+<font color="green"> <h1>Game;</h1> <%= game.name%> <h2>Publisher:</h2>  <%= game.publisher%><h3>Rate:</h3><%= game.rate%> </a> </font>
+</ul>
+<% end %> <br>
+
+
+
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

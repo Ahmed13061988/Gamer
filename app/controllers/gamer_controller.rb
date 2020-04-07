@@ -1,49 +1,35 @@
 class GamerController < ApplicationController
 
-   
-
-    get '/signup' do 
+    get '/signup' do   #reader
         if logged_in? 
             redirect to '/profile'
         end 
     erb :'/gamers/create_gamer'
     end 
 
-
-
-    post '/signup' do 
+    post '/signup' do   #writer 
         if (params[:username]).empty? ||(params[:password]).empty?
             flash[:field_error] = "Please, enter your username and password "
             redirect to '/signup'
         end 
          @gamer = Gamer.create(username: params[:username], password: params[:password])
          session[:gamer_id] = @gamer.id 
-         current_gamer = @gamer.id
+    
           erb :'gamers/profile'
         end 
 
 
-    get'/gamers/users' do 
+    get '/gamers/all_gamers' do 
         @gamer = Gamer.all
-        erb :'/gamers/users'
+        erb :'/gamers/all_gamers'
     end 
 
-        
-    get "/gamers/:id/gamers/users" do 
-        @gamer = Gamer.all
-        erb :'/gamers/users' 
-    end 
-
-
-  
-
-    
     get '/gamers/:id/games' do 
         if !logged_in?
             redirect 'login'
         end 
         @gamer = Gamer.find(params[:id])
-        erb :'/gamers/othergamersgames'
+        erb :'/gamers/view_games'
     end 
 
     
@@ -84,11 +70,13 @@ class GamerController < ApplicationController
         end
     end 
 
-    delete '/profile/:id' do #delete action
-        @gamer = Gamer.find_by_id(params[:id])
+    delete '/gamers/:id.delete' do #delete action
+         @gamer = Gamer.find_by_id(params[:id])
+        session.clear 
         @gamer.delete
         redirect to '/'
     end
+
 
 
 

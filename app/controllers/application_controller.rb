@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     !!session[:gamer_id]
    end
 
-  get '/' do 
+  get '/' do  #This path will open the new page for us (Sign up or login page )
     erb :new  
   end 
 

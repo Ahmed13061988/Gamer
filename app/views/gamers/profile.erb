@@ -1,5 +1,12 @@
 <div class="btn-group">
-<p><img src="https://images-na.ssl-images-amazon.com/images/I/81WC7WeciqL._SX466_.jpg" alt="image" style="width:500px"><h1>Hello <%= @gamer.username%>!<h1>
+<style>
+body {
+  background-image: url('https://www.itl.cat/pngfile/big/92-923175_31-white-background-hd-high-resolution-desktop-wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<centre><h1>Hello <%= @gamer.username%>!<h1></centre>
 <h2>Welcome to your Games World.</h2></p>
 
 <h3>What would you like to do?</h3>
@@ -9,10 +16,16 @@
 <p>
 <a href="/games">My Games</a> <br />
 
-<a href="gamers/users">All Gamers</a>
+<a href="gamers/all_gamers">All Gamers</a>
 
 <form action='/logout' method=get>
 <input type="submit" class="button" value="Logout"/>
 </form>
+
+<form action="/gamers/<%= @gamer.id%>.delete" method="post">
+<input id = "hidden" type="hidden" name="_method" value="delete"/>
+<input type="submit" class="button" value="Delete Profile :( " />
+</form>
+
 
 <div>

@@ -1,9 +1,6 @@
 class GamesController < ApplicationController 
 
 
-    # def anything
-    #     @games = Game.all 
-    # end 
 
     get '/games/create_game' do 
         if !logged_in?
@@ -20,22 +17,12 @@ class GamesController < ApplicationController
         redirect to '/games'
     end 
 
-    get '/games/' do 
-        if !logged_in?
-            redirect to '/login'
-        end 
-        @gamer=current_gamer
-        @games=current_gamer.games
-        erb :"/games/games"
-    end 
-
     
     get '/games' do 
         if !logged_in?
             redirect to '/login'
         end 
-        @gamer=current_gamer
-        @games=@gamer.games
+        @games=current_gamer.games
         erb :"/games/games"
     end 
 
@@ -55,16 +42,10 @@ class GamesController < ApplicationController
         erb :"games/edit"
     end 
 
-
-     get "/games/" do 
-        @game= Game.find(params[:id])
-        erb :"/games/show"
-     end 
-
     
     patch'/games/:id' do 
         if (params[:name]).empty? ||(params[:publisher]).empty?
-            flash[:field_error] = "No change added, because you left the name empty!"
+            flash[:field_error] = "No change, Please all fields are required! "
          redirect '/games'
         end 
       @game = Game.find(params[:id])
