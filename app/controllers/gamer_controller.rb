@@ -25,7 +25,7 @@ class GamerController < ApplicationController
         erb :'/gamers/gamers'
     end 
 
-    get '/gamers/:id/games' do 
+    get '/gamers:id/games' do 
         if !logged_in?
             redirect 'login'
         end 

@@ -54,7 +54,7 @@ class GamesController < ApplicationController
         redirect to "/games"
     end 
 
-    delete '/games/:id.delete' do 
+    delete '/games/:id/delete' do 
         if !logged_in?
             redirect to '/login'
         end 

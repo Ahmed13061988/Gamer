@@ -12,7 +12,7 @@
 <form action="/games/<%= @game.id %>/edit" method='patch'>
 <input type="submit" class="button" value="Edit Game"/>
 </form>
-<form action="/games/<%= @game.id%>.delete" method="post">
+<form action="/games/<%= @game.id%>/delete" method="post">
 <input id = "hidden" type="hidden" name="_method" value="delete"/>
 <input type="submit" class="button" value="Delete Game" />
 </form>
