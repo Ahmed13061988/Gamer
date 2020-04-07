@@ -19,9 +19,10 @@ class GamerController < ApplicationController
         end 
 
 
-    get '/gamers/all_gamers' do 
+    get '/gamers' do 
         @gamer = Gamer.all
-        erb :'/gamers/all_gamers'
+
+        erb :'/gamers/gamers'
     end 
 
     get '/gamers/:id/games' do 
@@ -70,7 +71,7 @@ class GamerController < ApplicationController
         end
     end 
 
-    delete '/gamers/:id.delete' do #delete action
+    delete '/gamers/:id/delete' do #delete action
          @gamer = Gamer.find_by_id(params[:id])
         session.clear 
         @gamer.delete
