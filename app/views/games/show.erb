@@ -1,12 +1,20 @@
-<h1> Game: </h1>
-<p><%=@game.name%></p>
+       <style>
+body {
+  background-image: url('https://i.pinimg.com/originals/a5/c4/fd/a5c4fdfb58a4f08d05063bc2fb90cae2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+<font color="white"><h1> Game: </h1></font>
+<font color="white"><p><%=@game.name%></p>
 <br>
 <br/>
-<h2>Publisher:</h2><br>
- <p><%=@game.publisher%></p>
+<font color="white"><h2>Publisher:</h2><br></font>
+ <font color="white"><p><%=@game.publisher%></p></font>
 <br>
-<h2>Rate:</h2><br>
-<p><%= @game.rate%></p><br>
+<font color="white"><h2>Rate:</h2><br></font>
+<font color="white"><p><%= @game.rate%></p><br></font>
 
 <div class="btn=group">
 <form action="/games/<%= @game.id %>/edit" method='patch'>

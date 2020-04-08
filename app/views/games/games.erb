@@ -1,7 +1,14 @@
 <% if flash.has?(:field_error)%>
 <h3 style="color:red;"><%= flash[:field_error] %></h3>
 <% end %>
-<h3>Select the Game to View, Edit or Delete</h3>
+       <style>
+body {
+  background-image: url('https://i.pinimg.com/originals/a5/c4/fd/a5c4fdfb58a4f08d05063bc2fb90cae2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<font color="white"> <h3>Select the Game to View, Edit or Delete</h3> </font>
 <% @games.each do |game|%>
 <ul>
 <li>

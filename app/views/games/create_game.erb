@@ -1,15 +1,23 @@
-<h1>Create a Game</h1>
+       <style>
+body {
+  background-image: url('https://i.pinimg.com/originals/a5/c4/fd/a5c4fdfb58a4f08d05063bc2fb90cae2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+<font color="white"><h1>Create a Game</h1></font>
 
 <div>
 <form action="/games" method="POST">
-<label for="name"><strong>Game Name:</strong></label>
+<label for="name"><font color="white"><strong>Game Name:</strong></label></font>
 <input type="text" id="name" name="name" required>
 <br><br/>
 <br><br/>
-<label for="publisher"><strong>Publisher:</strong></label></br><br>
+<label for="publisher"><font color="white"><strong>Publisher:</strong></label></br><br></font>
 <textarea name="publisher" cols="40" rows="2" id="publisher" required></textarea>
 <br>
-<label><strong>Rate:</strong><label><br />
+<label><font color="white"><strong>Rate:</strong><label><br /></font>
 <textarea name="rate" cols="40" rows="5" id="rate" required></textarea>
 <br>
 <input type="submit" value="Submit">
