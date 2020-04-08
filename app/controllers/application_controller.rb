@@ -27,9 +27,5 @@ class ApplicationController < Sinatra::Base
     erb :new  
   end 
 
- 
-
- 
-
 end 
 

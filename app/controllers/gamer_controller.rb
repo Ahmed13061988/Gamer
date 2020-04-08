@@ -21,11 +21,10 @@ class GamerController < ApplicationController
 
     get '/gamers' do 
         @gamer = Gamer.all
-
         erb :'/gamers/gamers'
     end 
 
-    get '/gamers:id/games' do 
+    get '/gamers/:id/games' do 
         if !logged_in?
             redirect 'login'
         end 

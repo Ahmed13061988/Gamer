@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>All Gamers!!</title>
+     <title>All Gamers!!</title> 
     </head>
     <body>
+    <style>
+body {
+  background-image: url('https://cnet3.cbsistatic.com/img/HJYB4DbxIDbp4smDyLEkImZIrjI=/940x0/2019/07/25/e76198c7-606a-4032-9bdc-b64d2836751a/online-gaming-gettyimages-1021197268.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
         <h1>All Gamers</h1>
         <% @gamer.each do |u|%>
             <ul>
             <li>
-            <a href="/gamers <%= u.id%>/games"><%= u.username%><br></a> 
+            <a href="/gamers/ <%= u.id%>/games"><%= u.username%><br></a> 
             </ul>
             <% end %>    
             <button onclick="goBack()">Go Back</button> <br>
