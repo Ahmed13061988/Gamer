@@ -15,7 +15,7 @@ body {
         <% @gamer.each do |u|%>
             <ul>
             <li>
-            <a href="/gamers/ <%= u.id%>/games"><%= u.username%><br></a> 
+            <a href="/gamers/<%= u.id%>/games"><%= u.username%><br></a> 
             </ul>
             <% end %>    
             <button onclick="goBack()">Go Back</button> <br>

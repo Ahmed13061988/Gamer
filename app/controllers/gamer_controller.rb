@@ -19,12 +19,12 @@ class GamerController < ApplicationController
         end 
 
 
-    get '/gamers' do 
+    get '/gamers' do #reader
         @gamer = Gamer.all
         erb :'/gamers/gamers'
     end 
 
-    get '/gamers/:id/games' do 
+    get '/gamers/:id/games' do  #reader
         if !logged_in?
             redirect 'login'
         end 
@@ -33,14 +33,14 @@ class GamerController < ApplicationController
     end 
 
     
-    get '/login' do 
+    get '/login' do  #reader
         if logged_in? 
             redirect to '/profile'
         end 
         erb :'gamers/login'
     end 
 
-    post '/login' do 
+    post '/login' do  #writer
         @gamer= Gamer.find_by(username: params[:username])
         if @gamer && @gamer.authenticate(params[:password])
             session[:gamer_id]= @gamer.id 
@@ -54,14 +54,14 @@ class GamerController < ApplicationController
         end 
     end 
 
-    get '/profile' do 
+    get '/profile' do #reader
         if logged_in?
             @gamer = current_gamer
             erb :'gamers/profile'
         end 
     end 
 
-    get '/logout' do 
+    get '/logout' do  #reader
         if logged_in?
             session.clear
             redirect to '/'
@@ -70,7 +70,7 @@ class GamerController < ApplicationController
         end
     end 
 
-    delete '/gamers/:id/delete' do #delete action
+    delete '/gamers/:id/delete' do #delete action 
          @gamer = Gamer.find_by_id(params[:id])
         session.clear 
         @gamer.delete

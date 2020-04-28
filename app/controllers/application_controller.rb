@@ -16,12 +16,14 @@ class ApplicationController < Sinatra::Base
     def current_gamer
      @gamer ||= Gamer.find(session[:gamer_id])
      end 
+     
+     def logged_in? 
+      !!session[:gamer_id]
+     end
    end 
 
 
-   def logged_in? 
-    !!session[:gamer_id]
-   end
+   
 
   get '/' do  #This path will open the new page for us (Sign up or login page )
     erb :new  

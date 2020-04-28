@@ -49,9 +49,13 @@ class GamesController < ApplicationController
          redirect '/games'
         end 
       @game = Game.find(params[:id])
+      if current_gamer.id != @game.gamer_id.to_i
+        redirect '/games'
+      else 
         @game.update(name: params[:name], publisher: params[:publisher], rate: params[:rate]) 
-        @game.save
+        #@game.save
         redirect to "/games"
+     end 
     end 
 
     delete '/games/:id/delete' do 
@@ -59,7 +63,11 @@ class GamesController < ApplicationController
             redirect to '/login'
         end 
         @game = Game.find(params[:id])
+        if current_gamer.id != @game.gamer_id.to_i
+            redirect '/games'
+          else 
             @game.delete 
             redirect to '/games'
+      end 
     end 
 end 
